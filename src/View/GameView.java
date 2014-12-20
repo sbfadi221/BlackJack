@@ -26,11 +26,21 @@ public class GameView {
 		for(Card c:gc.getPlayerHand().cards){
 			gameWindow.addCardToPlayerPanel(c.getPath());
 		}
+		
 		for(Card c:gc.getDealerHand().cards){
 			gameWindow.addCardToDealerPanel(c.getPath());
 		}
+		if(gc.getPlayerHand().checkBlackJack("player")) gameWindow.blackJack();
 	}
-
+	public void Hit(){
+		gameWindow.addCardToPlayerPanel(gc.hit().getPath());
+		updatePlayerHandValue();
+		if(gc.getPlayerHand().value>21) gameWindow.busted();
+		
+	}
+	public void updatePlayerHandValue(){
+		gameWindow.setPlayerHandValue(gc.getPlayerHand().value);
+	}
 
 
 }

@@ -17,8 +17,10 @@ public class GameRun {
 		GameView gv = GameView.getInstance();
         gc.shuffleDeck();
         gc.dealHands();
+        gc.calculatePlayerHandValue();
 		gv.ShowMainWindow();
 		gv.ShowDealedCards();
+		gv.updatePlayerHandValue();
 
 	}
 

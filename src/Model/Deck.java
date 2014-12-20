@@ -13,20 +13,29 @@ public class Deck {
 	 * 40-52 are Diamond
 	 */
 	public Deck(){
-		
+		int val=0;
 		for(int i=0;i<cards.length;i++){
 			SuitEnum suit;
 			// decide which suite is the card
 			if(i<13){
+				if(i<10) val=(i+1);
+				else val=10;
 				suit = SuitEnum.Clubs;
 			}else if(i>=13 && i<26){
+				if(i<23) val=(i-12);
+				else val=10;
 				suit = SuitEnum.Hearts;
 			}else if(i>=26 && i<39){
+				if(i<36) val=(i-25);
+				else val=10;
 				suit = SuitEnum.Spades;
 			}else{
+				if(i<49) val=(i-38);
+				else val=10;
 				suit = SuitEnum.Diamond;
 			}
-			cards[i]=new Card(suit,"Images\\"+(i+1)+".png");//create the card with the image path
+			
+			cards[i]=new Card(suit,"Images\\"+(i+1)+".png",val);//create the card with the image path
 		}
 	}
 	/**

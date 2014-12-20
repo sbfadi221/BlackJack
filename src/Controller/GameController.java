@@ -1,5 +1,7 @@
 package Controller;
 
+
+
 import Model.*;
 
 
@@ -82,5 +84,22 @@ public class GameController implements GameControllerInterface{
 			instance=new GameController();
 		}
 		return instance;
+	}
+	/**
+	 * gets a card from the deck
+	 * @return
+	 */
+	public Card hit(){
+		 Card c = deck.getTopCard();
+		 getPlayerHand().cards.add(c);
+		 getPlayerHand().calculateValue("player");
+		 return c;
+	}
+	/**
+	 * calculates player Hand value
+	 * @return
+	 */
+	public void calculatePlayerHandValue(){
+		player.getHand().calculateValue("player");
 	}
 }

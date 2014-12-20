@@ -2,6 +2,7 @@ package View;
 
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
@@ -24,6 +25,10 @@ public class MainGameWindow extends JFrame {
 	private JPanel contentPane;
     private JLabel[] playerHandPanel;//player card slots
     private JLabel[] dealerHandPanel;//dealer card slots
+	JButton btnStand = new JButton("Stand");
+	JButton btnHit = new JButton("Hit");
+    Label handVal = new Label("0");
+    Label dealerVal = new Label("0");
     int cur=0; //saves current card position in the player panel 
     int curd=0;//saves current card position in the dealer panel 
     String dealerFirstCard = "";
@@ -43,14 +48,19 @@ public class MainGameWindow extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnHit = new JButton("Hit");
-
+		
+		btnHit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				view.Hit();
+			}
+		});
 		btnHit.setBounds(254, 282, 89, 42);
 		contentPane.add(btnHit);
 		
-		JButton btnStand = new JButton("Stand");
+	
 		btnStand.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				stand();
 			}
 		});
 		btnStand.setBounds(399, 282, 89, 42);
@@ -186,16 +196,16 @@ public class MainGameWindow extends JFrame {
 		label_24.setBounds(10, 391, 99, 22);
 		contentPane.add(label_24);
 		
-		Label label = new Label("Dealer");
+		Label label = new Label("Dealer:");
 		label.setForeground(Color.BLUE);
 		label.setFont(new Font("Dialog", Font.BOLD, 21));
-		label.setBounds(308, 126, 99, 22);
+		label.setBounds(287, 129, 73, 22);
 		contentPane.add(label);
 		
-		Label label_1 = new Label("Player");
+		Label label_1 = new Label("Player:");
 		label_1.setForeground(Color.BLUE);
 		label_1.setFont(new Font("Dialog", Font.BOLD, 21));
-		label_1.setBounds(308, 363, 99, 22);
+		label_1.setBounds(287, 363, 73, 22);
 		contentPane.add(label_1);
 		//initialize the player slots
 		playerHandPanel[0] = playerSlot0;
@@ -226,6 +236,36 @@ public class MainGameWindow extends JFrame {
 		dealerHandPanel[11] = dealerSlot11;
 		
 		
+		handVal.setForeground(Color.BLUE);
+		handVal.setFont(new Font("Dialog", Font.BOLD, 21));
+		handVal.setBounds(378, 363, 34, 22);
+		contentPane.add(handVal);
+		
+		
+		dealerVal.setForeground(Color.BLUE);
+		dealerVal.setFont(new Font("Dialog", Font.BOLD, 21));
+		dealerVal.setBounds(366, 129, 34, 22);
+		contentPane.add(dealerVal);
+		
+		
+	}
+	public void busted(){
+		
+		btnHit.setEnabled(false);
+		btnStand.setEnabled(false);
+		JOptionPane.showMessageDialog(this,"Your Busted You lose");
+	}
+	public void stand(){
+		
+		btnHit.setEnabled(false);
+		btnStand.setEnabled(false);
+		JOptionPane.showMessageDialog(this,"Dealer Turn");
+	}
+	public void blackJack(){
+		
+		btnHit.setEnabled(false);
+		btnStand.setEnabled(false);
+		JOptionPane.showMessageDialog(this,"Black Jack Dealer Turn");
 	}
 	/**
 	 * adds a card to the players' hand
@@ -236,6 +276,20 @@ public class MainGameWindow extends JFrame {
 		    playerHandPanel[cur].setIcon(new ImageIcon(image));
 	     	cur++;//move to the next card position
 		}
+	}
+	/**
+	 * sets the dealer hand value
+	 * @param value
+	 */
+	public void setDealerHandValue(int val){
+		dealerVal.setText(val+"");
+	}
+	/**
+	 * sets the player hand value
+	 * @param value
+	 */
+	public void setPlayerHandValue(int val){
+		handVal.setText(val+"");
 	}
 	/**
 	 * adds a card to the dealers' hand
