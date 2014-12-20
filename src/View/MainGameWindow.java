@@ -13,6 +13,8 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.Label;
 import java.awt.Font;
+import javax.swing.UIManager;
+
 
 
 
@@ -41,7 +43,7 @@ public class MainGameWindow extends JFrame {
 		playerHandPanel = new JLabel[12];
 		view = gv;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 649, 547);
+		setBounds(100, 100, 661, 561);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(107, 142, 35));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -54,7 +56,7 @@ public class MainGameWindow extends JFrame {
 				view.Hit();
 			}
 		});
-		btnHit.setBounds(254, 282, 89, 42);
+		btnHit.setBounds(228, 226, 89, 42);
 		contentPane.add(btnHit);
 		
 	
@@ -63,7 +65,7 @@ public class MainGameWindow extends JFrame {
 				stand();
 			}
 		});
-		btnStand.setBounds(399, 282, 89, 42);
+		btnStand.setBounds(390, 226, 89, 42);
 		contentPane.add(btnStand);
 		
 		JButton btnNewGame = new JButton("New Game");
@@ -75,8 +77,9 @@ public class MainGameWindow extends JFrame {
 		contentPane.add(btnNewRound);
 		
 		JPanel dealerPanel = new JPanel();
+		dealerPanel.setOpaque(false);
 		dealerPanel.setBackground(new Color(50, 205, 50));
-		dealerPanel.setBounds(119, 11, 504, 106);
+		dealerPanel.setBounds(174, 68, 504, 106);
 		contentPane.add(dealerPanel);
 		dealerPanel.setLayout(null);
 		
@@ -129,7 +132,7 @@ public class MainGameWindow extends JFrame {
 		dealerPanel.add(dealerSlot0);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(10, 11, 99, 106);
+		panel_1.setBounds(546, 0, 89, 120);
 		contentPane.add(panel_1);
 		
 		JLabel lblNewLabel = new JLabel("");
@@ -137,8 +140,9 @@ public class MainGameWindow extends JFrame {
 		panel_1.add(lblNewLabel);
 		
 		JPanel playerPanel = new JPanel();
+		playerPanel.setOpaque(false);
 		playerPanel.setBackground(new Color(50, 205, 50));
-		playerPanel.setBounds(119, 391, 504, 106);
+		playerPanel.setBounds(174, 339, 504, 106);
 		contentPane.add(playerPanel);
 		playerPanel.setLayout(null);
 		
@@ -199,13 +203,13 @@ public class MainGameWindow extends JFrame {
 		Label label = new Label("Dealer:");
 		label.setForeground(Color.BLUE);
 		label.setFont(new Font("Dialog", Font.BOLD, 21));
-		label.setBounds(287, 129, 73, 22);
+		label.setBounds(307, 177, 73, 22);
 		contentPane.add(label);
 		
 		Label label_1 = new Label("Player:");
 		label_1.setForeground(Color.BLUE);
 		label_1.setFont(new Font("Dialog", Font.BOLD, 21));
-		label_1.setBounds(287, 363, 73, 22);
+		label_1.setBounds(307, 301, 73, 22);
 		contentPane.add(label_1);
 		//initialize the player slots
 		playerHandPanel[0] = playerSlot0;
@@ -238,14 +242,19 @@ public class MainGameWindow extends JFrame {
 		
 		handVal.setForeground(Color.BLUE);
 		handVal.setFont(new Font("Dialog", Font.BOLD, 21));
-		handVal.setBounds(378, 363, 34, 22);
+		handVal.setBounds(398, 301, 34, 22);
 		contentPane.add(handVal);
 		
 		
 		dealerVal.setForeground(Color.BLUE);
 		dealerVal.setFont(new Font("Dialog", Font.BOLD, 21));
-		dealerVal.setBounds(366, 129, 34, 22);
+		dealerVal.setBounds(398, 177, 34, 22);
 		contentPane.add(dealerVal);
+		
+		JLabel label_2 = new JLabel("");
+		label_2.setIcon(new ImageIcon("C:\\Users\\TheMist\\workspace\\BlackJack\\Images\\BG.png"));
+		label_2.setBounds(0, 0, 635, 522);
+		contentPane.add(label_2);
 		
 		
 	}
