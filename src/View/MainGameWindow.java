@@ -13,7 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.Label;
 import java.awt.Font;
-import javax.swing.UIManager;
+
 
 
 
@@ -62,7 +62,7 @@ public class MainGameWindow extends JFrame {
 	
 		btnStand.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				stand();
+				view.stand();
 			}
 		});
 		btnStand.setBounds(390, 226, 89, 42);
@@ -252,7 +252,7 @@ public class MainGameWindow extends JFrame {
 		contentPane.add(dealerVal);
 		
 		JLabel label_2 = new JLabel("");
-		label_2.setIcon(new ImageIcon("C:\\Users\\TheMist\\workspace\\BlackJack\\Images\\BG.png"));
+		label_2.setIcon(new ImageIcon("Images\\BG.png"));
 		label_2.setBounds(0, 0, 635, 522);
 		contentPane.add(label_2);
 		
@@ -269,12 +269,14 @@ public class MainGameWindow extends JFrame {
 		btnHit.setEnabled(false);
 		btnStand.setEnabled(false);
 		JOptionPane.showMessageDialog(this,"Dealer Turn");
+		flipFirstDealerCard();
 	}
 	public void blackJack(){
 		
 		btnHit.setEnabled(false);
 		btnStand.setEnabled(false);
 		JOptionPane.showMessageDialog(this,"Black Jack Dealer Turn");
+		flipFirstDealerCard();
 	}
 	/**
 	 * adds a card to the players' hand
@@ -307,7 +309,7 @@ public class MainGameWindow extends JFrame {
 	public void addCardToDealerPanel(String image){
 		if(curd<dealerHandPanel.length){
 			if(curd!=0){//if not the first card show it faced up
-				if(curd==2)  dealerHandPanel[0].setIcon(new ImageIcon(dealerFirstCard)); // if this is the third card to be dealt to the dealer  flip the first card face up
+				
 		        dealerHandPanel[curd].setIcon(new ImageIcon(image));
 	         	curd++;//move to the next card position
 			}else{//if this is the first card show it faced down
@@ -316,5 +318,8 @@ public class MainGameWindow extends JFrame {
 	         	curd++;//move to the next card position
 			}
 		}
+	}
+	public void flipFirstDealerCard(){
+		dealerHandPanel[0].setIcon(new ImageIcon(dealerFirstCard));
 	}
 }

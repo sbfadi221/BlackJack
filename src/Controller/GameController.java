@@ -92,7 +92,7 @@ public class GameController implements GameControllerInterface{
 	public Card hit(){
 		 Card c = deck.getTopCard();
 		 getPlayerHand().cards.add(c);
-		 getPlayerHand().calculateValue("player");
+		 calculatePlayerHandValue();
 		 return c;
 	}
 	/**
@@ -101,5 +101,12 @@ public class GameController implements GameControllerInterface{
 	 */
 	public void calculatePlayerHandValue(){
 		player.getHand().calculateValue("player");
+	}
+	/**
+	 * calculates player Hand value
+	 * @return
+	 */
+	public void calculateDealerHandValue(){
+		dealer.getHand().calculateValue("dealer");
 	}
 }

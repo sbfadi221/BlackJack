@@ -30,7 +30,10 @@ public class GameView {
 		for(Card c:gc.getDealerHand().cards){
 			gameWindow.addCardToDealerPanel(c.getPath());
 		}
-		if(gc.getPlayerHand().checkBlackJack("player")) gameWindow.blackJack();
+		if(gc.getPlayerHand().checkBlackJack("player")){
+			gameWindow.blackJack();
+			updateDealerHandValue();
+		}
 	}
 	public void Hit(){
 		gameWindow.addCardToPlayerPanel(gc.hit().getPath());
@@ -38,9 +41,16 @@ public class GameView {
 		if(gc.getPlayerHand().value>21) gameWindow.busted();
 		
 	}
+	public void stand(){
+		gc.calculateDealerHandValue();
+		updateDealerHandValue();
+		gameWindow.stand();
+	}
 	public void updatePlayerHandValue(){
 		gameWindow.setPlayerHandValue(gc.getPlayerHand().value);
 	}
-
+	public void updateDealerHandValue(){
+		gameWindow.setDealerHandValue(gc.getDealerHand().value);
+	}
 
 }
