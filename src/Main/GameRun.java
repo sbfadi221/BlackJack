@@ -5,7 +5,11 @@ package Main;
 import Controller.GameController;
 import View.GameView;
 
-
+/**
+ * Run the game
+ * @author TheMist
+ *
+ */
 public class GameRun {
 
 	/**

@@ -38,8 +38,8 @@ public class GameController implements GameControllerInterface{
 	public void dealHands(){
 		
 		for(int i=0;i<2;i++){//deals two cards
-		    player.getHand().cards.add(deck.getTopCard());
-		    dealer.getHand().cards.add(deck.getTopCard());
+		    player.getHand().cards.add(deck.getTopCard());//deal card to the player
+		    dealer.getHand().cards.add(deck.getTopCard());//deal card to the dealer
 		}
 	}
 	/**

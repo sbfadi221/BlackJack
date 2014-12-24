@@ -41,6 +41,9 @@ public class GameView {
 		if(gc.getPlayerHand().value>21) gameWindow.busted();
 		
 	}
+	/**
+	 * give the turn to the dealer (Visualy)
+	 */
 	public void stand(){
 		gc.calculateDealerHandValue();
 		updateDealerHandValue();
