@@ -23,7 +23,7 @@ public class GameController implements GameControllerInterface{
 	/**
 	 * create a new deck
 	 */
-	private void createDeck(){
+	public void createDeck(){
 		deck = new Deck();
 	}
 	/**

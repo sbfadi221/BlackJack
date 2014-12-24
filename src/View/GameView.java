@@ -6,7 +6,7 @@ import Model.Card;
 
 public class GameView {
 	private static GameView instance=null;
-	private MainGameWindow gameWindow;
+	public MainGameWindow gameWindow;
 	GameControllerInterface gc = GameController.getInstance();
 	
 	private GameView(){

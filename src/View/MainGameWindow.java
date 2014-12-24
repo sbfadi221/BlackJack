@@ -25,8 +25,8 @@ public class MainGameWindow extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-    private JLabel[] playerHandPanel;//player card slots
-    private JLabel[] dealerHandPanel;//dealer card slots
+    public JLabel[] playerHandPanel;//player card slots
+    public JLabel[] dealerHandPanel;//dealer card slots
 	JButton btnStand = new JButton("Stand");
 	JButton btnHit = new JButton("Hit");
     Label handVal = new Label("0");
