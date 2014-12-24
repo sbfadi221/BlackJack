@@ -6,7 +6,11 @@ import org.junit.Test;
 
 import Controller.GameController;
 import View.GameView;
-
+/**
+ * Tests the GameView Functionality
+ * @author TheMist
+ *
+ */
 
 public class GameViewTest {
 

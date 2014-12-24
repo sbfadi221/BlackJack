@@ -21,6 +21,19 @@ public class Hand {
     	
     }
     /**
+     * check if the dealer hit soft 17
+     * 
+     * @return true if soft 17
+     */
+    public boolean checkSoft17(){
+    	calculateValue("dealer");
+    	if(value==17&& (cards.get(0).getValue()==1 || cards.get(1).getValue()==1)){
+    		return true;
+    	}
+    	else return false;
+    	
+    }
+    /**
      * calculates the value of the hand
      * @param the player or the dealer
      */

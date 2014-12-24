@@ -5,7 +5,11 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import Controller.GameController;
-
+/**
+ * Tests the gamecontroller functionality
+ * @author TheMist
+ *
+ */
 public class GameControllerTest {
 
 	@Test

@@ -6,7 +6,11 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import Model.Deck;
-
+/**
+ * tests the deck functionality
+ * @author TheMist
+ *
+ */
 public class DeckTest {
 
 

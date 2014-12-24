@@ -38,8 +38,8 @@ public class GameController implements GameControllerInterface{
 	public void dealHands(){
 		
 		for(int i=0;i<2;i++){//deals two cards
-		    player.getHand().cards.add(deck.getTopCard());
-		    dealer.getHand().cards.add(deck.getTopCard());
+		    player.getHand().cards.add(deck.getTopCard());//deal card to the player
+		    dealer.getHand().cards.add(deck.getTopCard());//deal card to the dealer
 		}
 	}
 	/**
@@ -109,4 +109,19 @@ public class GameController implements GameControllerInterface{
 	public void calculateDealerHandValue(){
 		dealer.getHand().calculateValue("dealer");
 	}
+	/**
+	 * Plays the dealer turn
+	 */
+	public String calculateDealerTurn(){
+		calculateDealerHandValue();
+		if(dealer.getHand().checkBlackJack("dealer")) return "bj";
+		if(dealer.getHand().checkSoft17()) return "17";
+		while(dealer.getHand().value<17  ){
+			Card c = deck.getTopCard();
+			getDealerHand().cards.add(c);
+			calculateDealerHandValue();
+		}
+		return "";
+	}
+	
 }

@@ -259,20 +259,20 @@ public class MainGameWindow extends JFrame {
 		
 	}
 	public void busted(){
-		
+		//disable the hit and stand buttons
 		btnHit.setEnabled(false);
 		btnStand.setEnabled(false);
 		JOptionPane.showMessageDialog(this,"Your Busted You lose");
 	}
 	public void stand(){
-		
+		//disable the hit and stand buttons
 		btnHit.setEnabled(false);
 		btnStand.setEnabled(false);
 		JOptionPane.showMessageDialog(this,"Dealer Turn");
 		flipFirstDealerCard();
 	}
 	public void blackJack(){
-		
+		//disable the hit and stand buttons
 		btnHit.setEnabled(false);
 		btnStand.setEnabled(false);
 		JOptionPane.showMessageDialog(this,"Black Jack Dealer Turn");
