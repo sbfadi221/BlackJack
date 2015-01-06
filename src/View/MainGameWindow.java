@@ -271,6 +271,12 @@ public class MainGameWindow extends JFrame {
 		JOptionPane.showMessageDialog(this,"Dealer Turn");
 		flipFirstDealerCard();
 	}
+	public void dealerBlackJack(){
+		JOptionPane.showMessageDialog(this,"Dealer has a Black Jack");
+	}
+	public void dealerSoft17(){
+		JOptionPane.showMessageDialog(this,"Dealer hit soft 17");
+	}
 	public void blackJack(){
 		//disable the hit and stand buttons
 		btnHit.setEnabled(false);

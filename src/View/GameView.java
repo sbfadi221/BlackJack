@@ -33,6 +33,7 @@ public class GameView {
 		if(gc.getPlayerHand().checkBlackJack("player")){
 			gameWindow.blackJack();
 			updateDealerHandValue();
+			dealerTurn();
 		}
 	}
 	public void Hit(){
@@ -47,7 +48,9 @@ public class GameView {
 	public void stand(){
 		gc.calculateDealerHandValue();
 		updateDealerHandValue();
+		
 		gameWindow.stand();
+		dealerTurn();
 	}
 	public void updatePlayerHandValue(){
 		gameWindow.setPlayerHandValue(gc.getPlayerHand().value);
@@ -55,5 +58,17 @@ public class GameView {
 	public void updateDealerHandValue(){
 		gameWindow.setDealerHandValue(gc.getDealerHand().value);
 	}
-
+	public void dealerTurn(){
+		String res = gc.calculateDealerTurn();
+		updateDealerHandValue();
+		if(res.equals(("bj"))) gameWindow.dealerBlackJack();
+		else if(res.equals(("17")));
+		else{
+			
+			for(int i=2;i<gc.getDealerHand().cards.size();i++){
+				gameWindow.addCardToDealerPanel(gc.getDealerHand().cards.get(i).getPath());
+			}
+		}
+	
+	}
 }
