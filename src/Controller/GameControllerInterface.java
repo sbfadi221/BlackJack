@@ -16,5 +16,9 @@ public interface GameControllerInterface {
 	public String calculateDealerTurn();//calculates the dealer turn
 	public String checkWinner();//calculates the winner
 	public int getScore();//gets the player score
+	public void newGame();//starts new game
+	public void newRound();//starts a new round
+	public int busted();//player busted 
+
 
 }

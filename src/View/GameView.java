@@ -34,12 +34,18 @@ public class GameView {
 			gameWindow.blackJack();
 			updateDealerHandValue();
 			dealerTurn();
+			gameWindow.declareWinner(gc.checkWinner());
+			gameWindow.setScore(gc.getScore());
 		}
 	}
 	public void Hit(){
 		gameWindow.addCardToPlayerPanel(gc.hit().getPath());
 		updatePlayerHandValue();
-		if(gc.getPlayerHand().value>21) gameWindow.busted();
+		if(gc.getPlayerHand().value>21){
+			
+		   gameWindow.busted(gc.busted());
+		   gameWindow.setScore(gc.getScore());
+		}
 		
 	}
 	/**
@@ -73,5 +79,15 @@ public class GameView {
 			}
 		}
 	
+	}
+	public void newGame(){
+		gc.newGame();
+		ShowDealedCards();
+		updatePlayerHandValue();
+	}
+	public void newRound(){
+		gc.newRound();
+		ShowDealedCards();
+		updatePlayerHandValue();
 	}
 }

@@ -131,7 +131,7 @@ public class GameController implements GameControllerInterface{
 	public String checkWinner() {
 		if(dealer.getHand().value>=player.getHand().value && dealer.getHand().value<=21){
 			
-			return "The Dealer Wins Your Score This Round: "+ calculateScore(-1);
+			return "You Lose Your Score This Round: "+ calculateScore(-1);
 		}
 			
 		else{
@@ -147,12 +147,12 @@ public class GameController implements GameControllerInterface{
 	public int calculateScore(int result){
 		int sc =0;
 		if((round%2) == 0){
-			sc=(result*2)+player.getScore();
-			player.setScore(sc);
+			sc=(result*2);
+			player.setScore(sc+player.getScore());
 		}
 		else{
-			sc=(result*3)+player.getScore();
-			player.setScore(sc);
+			sc=(result*3);
+			player.setScore(sc+player.getScore());
 		
 		}
         return sc;
@@ -174,7 +174,11 @@ public class GameController implements GameControllerInterface{
 	 */
 	public void newGame(){
 		
-		instance=new GameController();
+		createDeck();
+		player.resetHand();
+		dealer.resetHand();
+		player.setScore(0);
+		dealer.setScore(0);
 		shuffleDeck();
 	    dealHands();
 	    calculatePlayerHandValue();
@@ -192,6 +196,10 @@ public class GameController implements GameControllerInterface{
 		dealer.resetHand();
 	    dealHands();
 	    calculatePlayerHandValue();
+		
+	}
+	public int busted() {
+		return calculateScore(-1);
 		
 	}
 

@@ -28,6 +28,8 @@ public class MainGameWindow extends JFrame {
     public JLabel[] playerHandPanel;//player card slots
     public JLabel[] dealerHandPanel;//dealer card slots
 	JButton btnStand = new JButton("Stand");
+	JButton btnNewGame ;
+	JButton btnNewRound ;
 	JButton btnHit = new JButton("Hit");
     Label handVal = new Label("0");
     Label dealerVal = new Label("0");
@@ -69,29 +71,40 @@ public class MainGameWindow extends JFrame {
 		btnStand.setBounds(390, 226, 89, 42);
 		contentPane.add(btnStand);
 		
-		JButton btnNewGame = new JButton("New Game");
+		btnNewGame = new JButton("New Game");
 		btnNewGame.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			    handVal.setText("0");
 			    dealerVal.setText("0");
 			    score.setText("Score: 0");
 			    clearHands();
+			    view.newGame();
+				btnHit.setEnabled(true);
+				btnStand.setEnabled(true);
+				btnNewRound.setEnabled(false);
+				btnNewGame.setEnabled(false);
 			}
 		});
 		btnNewGame.setBounds(10, 430, 103, 28);
 		contentPane.add(btnNewGame);
-		
-		JButton btnNewRound = new JButton("New Round");
+		btnNewGame.setEnabled(false);
+		btnNewRound = new JButton("New Round");
 		btnNewRound.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			    handVal.setText("0");
 			    dealerVal.setText("0");
 			   
 			    clearHands();
+			    view.newRound();
+				btnHit.setEnabled(true);
+				btnStand.setEnabled(true);
+				btnNewRound.setEnabled(false);
+				btnNewGame.setEnabled(false);
 			}
 		});
 		btnNewRound.setBounds(10, 469, 103, 28);
 		contentPane.add(btnNewRound);
+		btnNewRound.setEnabled(false);
 		
 		JPanel dealerPanel = new JPanel();
 		dealerPanel.setOpaque(false);
@@ -275,11 +288,14 @@ public class MainGameWindow extends JFrame {
 		
 		
 	}
-	public void busted(){
+	public void busted(int score){
 		//disable the hit and stand buttons
 		btnHit.setEnabled(false);
 		btnStand.setEnabled(false);
-		JOptionPane.showMessageDialog(this,"Your Busted You lose");
+		JOptionPane.showMessageDialog(this,"Your Busted You lose You Score this turn: "+score);
+		btnNewRound.setEnabled(true);
+		btnNewGame.setEnabled(true);
+	
 	}
 	public void stand(){
 		//disable the hit and stand buttons
@@ -287,6 +303,9 @@ public class MainGameWindow extends JFrame {
 		btnStand.setEnabled(false);
 		JOptionPane.showMessageDialog(this,"Dealer Turn");
 		flipFirstDealerCard();
+		btnNewRound.setEnabled(true);
+		btnNewGame.setEnabled(true);
+
 	}
 	public void dealerBlackJack(){
 		JOptionPane.showMessageDialog(this,"Dealer has a Black Jack");
@@ -303,6 +322,9 @@ public class MainGameWindow extends JFrame {
 		btnStand.setEnabled(false);
 		JOptionPane.showMessageDialog(this,"Black Jack Dealer Turn");
 		flipFirstDealerCard();
+		btnNewRound.setEnabled(true);
+		btnNewGame.setEnabled(true);
+
 	}
 	/**
 	 * adds a card to the players' hand
@@ -358,5 +380,7 @@ public class MainGameWindow extends JFrame {
 		}
 		cur=0;
 		curd=0;
+
 	}
+	
 }
