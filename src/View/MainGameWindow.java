@@ -74,15 +74,16 @@ public class MainGameWindow extends JFrame {
 		btnNewGame = new JButton("New Game");
 		btnNewGame.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				btnHit.setEnabled(true);
+				btnStand.setEnabled(true);
+				btnNewRound.setEnabled(false);
+				btnNewGame.setEnabled(false);
 			    handVal.setText("0");
 			    dealerVal.setText("0");
 			    score.setText("Score: 0");
 			    clearHands();
 			    view.newGame();
-				btnHit.setEnabled(true);
-				btnStand.setEnabled(true);
-				btnNewRound.setEnabled(false);
-				btnNewGame.setEnabled(false);
+	
 			}
 		});
 		btnNewGame.setBounds(10, 430, 103, 28);
@@ -91,15 +92,16 @@ public class MainGameWindow extends JFrame {
 		btnNewRound = new JButton("New Round");
 		btnNewRound.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				btnHit.setEnabled(true);
+				btnStand.setEnabled(true);
+				btnNewRound.setEnabled(false);
+				btnNewGame.setEnabled(false);
 			    handVal.setText("0");
 			    dealerVal.setText("0");
 			   
 			    clearHands();
 			    view.newRound();
-				btnHit.setEnabled(true);
-				btnStand.setEnabled(true);
-				btnNewRound.setEnabled(false);
-				btnNewGame.setEnabled(false);
+
 			}
 		});
 		btnNewRound.setBounds(10, 469, 103, 28);

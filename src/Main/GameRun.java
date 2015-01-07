@@ -24,7 +24,7 @@ public class GameRun {
         gc.calculatePlayerHandValue();
 		gv.ShowMainWindow();
 		gv.ShowDealedCards();
-		gv.updatePlayerHandValue();
+		
 
 	}
 
