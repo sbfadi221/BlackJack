@@ -10,6 +10,7 @@ public class GameController implements GameControllerInterface{
 	private Deck deck;
 	private Player player;
 	private Dealer dealer;
+	public int round;
 	
 	/**
 	 * The controller constructor creates the deck and the players
@@ -18,6 +19,7 @@ public class GameController implements GameControllerInterface{
 		createDeck();
 		player = new Player("Player");
 		dealer = new Dealer("Dealer");
+		round = 1;
 
 	}
 	/**
@@ -122,6 +124,38 @@ public class GameController implements GameControllerInterface{
 			calculateDealerHandValue();
 		}
 		return "";
+	}
+	/**
+	 * calculates the winner of the game
+	 */
+	public String checkWinner() {
+		if(dealer.getHand().value>=player.getHand().value && dealer.getHand().value<=21){
+			
+			return "The Dealer Wins Your Score This Round: "+ calculateScore(-1);
+		}
+			
+		else{
+			
+			return "You Win Your Score This Round: "+ calculateScore(1);
+		}
+	}
+	/**
+	 * calculates the player score
+	 * @param result of the game for the player -1 for lose 1 for win
+	 * @return the score for the current round
+	 */
+	public int calculateScore(int result){
+		int sc =0;
+		if((round%2) == 0){
+			sc=(result*2)+player.getScore();
+			player.setScore(sc);
+		}
+		else{
+			sc=(result*3)+player.getScore();
+			player.setScore(sc);
+		
+		}
+        return sc;
 	}
 	
 }

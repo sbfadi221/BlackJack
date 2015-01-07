@@ -14,4 +14,5 @@ public interface GameControllerInterface {
 	public Card hit();//Gets a card from the deck
 	public void calculateDealerHandValue();//Calculates the dealer hand value
 	public String calculateDealerTurn();//calculates the dealer turn
+	public String checkWinner();//calculates the winner
 }
