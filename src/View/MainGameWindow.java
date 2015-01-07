@@ -31,6 +31,7 @@ public class MainGameWindow extends JFrame {
 	JButton btnHit = new JButton("Hit");
     Label handVal = new Label("0");
     Label dealerVal = new Label("0");
+    Label score;
     int cur=0; //saves current card position in the player panel 
     int curd=0;//saves current card position in the dealer panel 
     String dealerFirstCard = "";
@@ -69,10 +70,26 @@ public class MainGameWindow extends JFrame {
 		contentPane.add(btnStand);
 		
 		JButton btnNewGame = new JButton("New Game");
+		btnNewGame.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			    handVal.setText("0");
+			    dealerVal.setText("0");
+			    score.setText("Score: 0");
+			    clearHands();
+			}
+		});
 		btnNewGame.setBounds(10, 430, 103, 28);
 		contentPane.add(btnNewGame);
 		
 		JButton btnNewRound = new JButton("New Round");
+		btnNewRound.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			    handVal.setText("0");
+			    dealerVal.setText("0");
+			   
+			    clearHands();
+			}
+		});
 		btnNewRound.setBounds(10, 469, 103, 28);
 		contentPane.add(btnNewRound);
 		
@@ -194,11 +211,11 @@ public class MainGameWindow extends JFrame {
 		playerSlot0.setBounds(129, 11, 72, 96);
 		playerPanel.add(playerSlot0);
 		
-		Label label_24 = new Label("Score: 0");
-		label_24.setFont(new Font("Dialog", Font.BOLD, 21));
-		label_24.setForeground(new Color(0, 0, 255));
-		label_24.setBounds(10, 391, 99, 22);
-		contentPane.add(label_24);
+		score = new Label("Score: 0");
+		score.setFont(new Font("Dialog", Font.BOLD, 21));
+		score.setForeground(new Color(0, 0, 255));
+		score.setBounds(10, 391, 99, 22);
+		contentPane.add(score);
 		
 		Label label = new Label("Dealer:");
 		label.setForeground(Color.BLUE);
@@ -277,6 +294,9 @@ public class MainGameWindow extends JFrame {
 	public void dealerSoft17(){
 		JOptionPane.showMessageDialog(this,"Dealer hit soft 17");
 	}
+	public void declareWinner(String msg){
+		JOptionPane.showMessageDialog(this,msg);
+	}
 	public void blackJack(){
 		//disable the hit and stand buttons
 		btnHit.setEnabled(false);
@@ -293,6 +313,9 @@ public class MainGameWindow extends JFrame {
 		    playerHandPanel[cur].setIcon(new ImageIcon(image));
 	     	cur++;//move to the next card position
 		}
+	}
+	public void setScore(int s){
+		score.setText("Score: "+s);
 	}
 	/**
 	 * sets the dealer hand value
@@ -327,5 +350,13 @@ public class MainGameWindow extends JFrame {
 	}
 	public void flipFirstDealerCard(){
 		dealerHandPanel[0].setIcon(new ImageIcon(dealerFirstCard));
+	}
+	public void clearHands(){
+		for(int i=0;i<12;i++){
+			 dealerHandPanel[i].setIcon(null);
+			 playerHandPanel[i].setIcon(null);
+		}
+		cur=0;
+		curd=0;
 	}
 }

@@ -51,6 +51,9 @@ public class GameView {
 		
 		gameWindow.stand();
 		dealerTurn();
+		gameWindow.declareWinner(gc.checkWinner());
+		gameWindow.setScore(gc.getScore());
+		
 	}
 	public void updatePlayerHandValue(){
 		gameWindow.setPlayerHandValue(gc.getPlayerHand().value);

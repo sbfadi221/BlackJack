@@ -15,8 +15,6 @@ public interface GameControllerInterface {
 	public void calculateDealerHandValue();//Calculates the dealer hand value
 	public String calculateDealerTurn();//calculates the dealer turn
 	public String checkWinner();//calculates the winner
-<<<<<<< HEAD
 	public int getScore();//gets the player score
-=======
->>>>>>> 33f142c38ea4124d1073075b9f866d18ef86eefb
+
 }
