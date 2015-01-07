@@ -5,6 +5,6 @@ When you load it into eclipse from github there maybe an issue with the JRE refe
 again should solve it.
 
 Functionality:
-Hit and Stand buttons now works
-Alerts should pop up on busting or having blackjack
-Hand Value now is calculated for both dealer and player
+Game Fully Functional  now
+New Round button opens a new round while keeping your game score until now
+New Game button creats a new game and resets all scores

@@ -173,7 +173,7 @@ public class GameController implements GameControllerInterface{
 	 * 
 	 */
 	public void newGame(){
-		
+		round=1;
 		createDeck();
 		player.resetHand();
 		dealer.resetHand();
@@ -190,6 +190,7 @@ public class GameController implements GameControllerInterface{
 	 * 
 	 */
 	public void newRound(){
+		round++;
 		createDeck();
 		shuffleDeck();
 		player.resetHand();
