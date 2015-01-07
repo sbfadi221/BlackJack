@@ -157,6 +157,7 @@ public class GameController implements GameControllerInterface{
 		}
         return sc;
 	}
+<<<<<<< HEAD
 	/**
 	 * returns the player score
 	 * 
@@ -166,5 +167,7 @@ public class GameController implements GameControllerInterface{
 		return player.getScore();
 	
 	}
+=======
+>>>>>>> 33f142c38ea4124d1073075b9f866d18ef86eefb
 	
 }
