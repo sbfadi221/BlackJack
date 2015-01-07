@@ -167,6 +167,33 @@ public class GameController implements GameControllerInterface{
 		return player.getScore();
 	
 	}
+	/**
+	 * resets the game and scores
+	 * 
+	 * 
+	 */
+	public void newGame(){
+		
+		instance=new GameController();
+		shuffleDeck();
+	    dealHands();
+	    calculatePlayerHandValue();
+	
+	}
+	/**
+	 * resets the hands and deck
+	 * 
+	 * 
+	 */
+	public void newRound(){
+		createDeck();
+		shuffleDeck();
+		player.resetHand();
+		dealer.resetHand();
+	    dealHands();
+	    calculatePlayerHandValue();
+		
+	}
 
 	
 }
